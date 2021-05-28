@@ -33,10 +33,6 @@ function usage(){
 
 }
 
-function printPayslip(name, grossMonthly){
-
-}
-
 function generatePayslip(name, grossAnnual){
     let grossMonthly = grossAnnual / 12;
     let net = 0;
