@@ -10,14 +10,14 @@ function validateArgs(args){
 
     if (args.length!==4){
         //incorrect number of args
-        console.log(`Expecting 2 args but recieved ${args.length-2}`)
+        console.log(`Expecting 2 args but received ${args.length-2}`)
         return false
     } else if (typeof(args[2])!=="string"){
-        // incorrect arg type - name isnt string
+        // incorrect arg type - name isn't string
         console.log("incorrect arg type - name")
         return false
     } else if (isNaN(Number(args[3]))){
-        // incorrect arg type - gross isnt number
+        // incorrect arg type - gross isn't number
         console.log("incorrect arg type - gross")
         return false
     }
@@ -29,7 +29,7 @@ function usage(){
     console.log("USAGE")
     console.log("node generatePayslip.js [Name] [Gross]")
     console.log("-Name :  the name to be appended to the payslip. Should be in string format")
-    console.log("-Gross :  the gross annual ammount to calculate income on. Should be a number")
+    console.log("-Gross :  the gross annual amount to calculate income on. Should be a number")
 
 }
 
@@ -42,7 +42,7 @@ function generatePayslip(name, grossAnnual){
         if (bracket.max && grossAnnual - bracket.max > 0){ //bracket.max condition allows us to set boolean flag rather than numerical limit on last bracket
             tax += (((bracket.max-bracket.min)+1)*bracket.rate); // +1 compensates for tax payed on the 1st dollar per bracket
         } else if (grossAnnual > bracket.min){
-            tax += ((grossAnnual-bracket.min+1)*bracket.rate); // +1 compensates for tax payed on the 1st dollar per bracket
+            tax += (((grossAnnual-bracket.min)+1)*bracket.rate); // +1 compensates for tax payed on the 1st dollar per bracket
         }
     })
 
